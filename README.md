@@ -1,4 +1,4 @@
-https://github.com/mayank992/image-src-intercept/assets/53047918/91bd0c6d-0143-4976-aed5-2b4af0d3bc7f
+https://github.com/mayank992/image-src-intercept/assets/53047918/f3e3fed9-8713-4b91-a5bd-96ecd8c1061f
 
 Initially, `src` attribute of `img` tag is set to `/invalid-image.png` which will result in `404`.
 
