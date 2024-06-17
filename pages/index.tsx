@@ -1,6 +1,6 @@
 // libs
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 // scripts
 import { setupSecureMedia } from "@/scripts/setupSecureMedia";
@@ -14,7 +14,7 @@ export default function Home() {
   const [showDynamicImage, setShowDynamicImage] = useState(false);
   // load secure media identifiers here
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // pass secure media identifiers to this setup function
     setupSecureMedia();
   }, []);
