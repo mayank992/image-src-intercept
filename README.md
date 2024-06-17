@@ -22,3 +22,7 @@ yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+**Cons**
+
+1. Even though we are replacing the invalid image URLs with the valid ones, the browser will still initiate the network call for the invalid image URL before our script runs.
