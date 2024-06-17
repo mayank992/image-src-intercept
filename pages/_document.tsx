@@ -4,9 +4,7 @@ import Script from "next/script";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head>
-        <Script src="/intercept-img-src.js" strategy="beforeInteractive" />
-      </Head>
+      <Head />
       <body>
         <Main />
         <NextScript />

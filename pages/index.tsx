@@ -1,12 +1,23 @@
+// libs
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
+// scripts
+import { setupSecureMedia } from "@/scripts/setupSecureMedia";
+
+// fonts
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [showDynamicImage, setShowDynamicImage] = useState(false);
+  // load secure media identifiers here
+
+  useEffect(() => {
+    // pass secure media identifiers to this setup function
+    setupSecureMedia();
+  }, []);
 
   return (
     <>
