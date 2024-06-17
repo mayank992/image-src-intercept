@@ -1,8 +1,10 @@
-(function () {
-  console.log("Patching image attributes...");
+const getImgSrc = (src) => src.replace("invalid-image.png", "valid-image.png");
 
-  const getImgSrc = (src) => (src === "/image1.png" ? "/image2.png" : src);
+// ------------- Img Src Patch -------------- //
 
+console.log("Patching image src attribute...");
+
+function patchImgSrc() {
   const originalSrcDescriptor = Object.getOwnPropertyDescriptor(
     HTMLImageElement.prototype,
     "src"
@@ -13,12 +15,28 @@
       console.log("Intercepted image src:", value);
       originalSrcDescriptor.set.call(this, getImgSrc(value));
     },
-    get: function () {
+    get() {
       return originalSrcDescriptor.get.call(this);
     },
     configurable: true,
     enumerable: true,
   });
+}
 
-  console.log("Patched image attributes");
-})();
+patchImgSrc();
+
+console.log("Patched image src attribute");
+
+// ------------- Extra handling for SSR images -------------- //
+
+function replaceBrokenImages() {
+  const images = document.querySelectorAll("img");
+  console.log(images);
+  images.forEach((img) => {
+    console.log("Intercepted initial img src:", img.src);
+    img.src = img.src; // patched src setter will intercept this
+  });
+}
+
+// Initial check for server-side rendered images
+replaceBrokenImages();

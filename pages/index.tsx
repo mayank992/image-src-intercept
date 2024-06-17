@@ -22,28 +22,28 @@ export default function Home() {
         </button>
         <br />
         <br />
+        <p>SSR Image</p>
         <img
-          src="/image1.png"
+          src="/invalid-image.png"
           alt="ssr-image"
           width={280}
           height={180}
           onLoadStart={() => console.log("Loading Image...")}
           onLoad={() => console.log("Image Loaded")}
         />
-        <p>SSR Image</p>
         <br />
         <br />
         {showDynamicImage ? (
           <>
+            <p>Dynamic Image</p>
             <img
-              src="/image1.png"
+              src="/invalid-image.png"
               alt="dynamic-image"
               width={280}
               height={180}
               onLoadStart={() => console.log("Loading Dynamic Image...")}
               onLoad={() => console.log("Dynamic Image Loaded")}
             />
-            <p>Dynamic Image</p>
           </>
         ) : null}
       </main>
